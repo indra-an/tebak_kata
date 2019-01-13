@@ -28,8 +28,9 @@ class Game
     end
 
     def show_point
-        if get_score == @words[@level].size || get_score == @words.map(&:size).inject(0, :+)
-            if get_score == @words.map(&:size).inject(0, :+)
+        total_score = @words.map(&:size).inject(0, :+)
+        if get_score == @words[@level].size || get_score == total_score
+            if get_score == total_score
                 puts "SELAMAT, anda menang!"
             else
                 puts 
