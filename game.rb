@@ -33,6 +33,7 @@ class Game
             if get_score == total_score
                 puts "SELAMAT, anda menang!"
             else
+                puts "BENAR, point anda : #{get_score}!"
                 puts 
                 puts "SELAMAT, anda berhasil naik ke level #{get_level}!"
 
@@ -56,7 +57,7 @@ class Game
     def valid_word?(word, correct_word)
         result = correct_word === word.downcase
         @score +=1 if result
-        @level+= 1 if @score == @words[@level].size
+        @level+= 1 if (@score == @words[@level].size*get_level) && (get_level < @words.size)
 
         result
     end
